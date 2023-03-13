@@ -35,14 +35,14 @@ while continue_snake:
 
     # detect hitting wall
     if snake.head.xcor() < -280 or snake.head.xcor() > 280 or snake.head.ycor() < -280 or snake.head.ycor() > 280:
-        continue_snake = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        snake.reset()
 
     # detect hitting tail
     for segment in snake.seg_list[1:]:
         if snake.head.distance(segment) < 10:
-            continue_snake = False
-            scoreboard.game_over()
+            scoreboard.reset()
+            snake.reset()
 
 
 screen.exitonclick()
